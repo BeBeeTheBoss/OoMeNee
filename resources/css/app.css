@@ -1,0 +1,260 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.jsx';
+
+@theme {
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Myanmar Sangam MN', 'Noto Sans Myanmar', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: #f8f8f6;
+        color: #181a1f;
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+}
+
+@layer components {
+    .preview-grid {
+        background-image:
+            linear-gradient(rgb(24 26 31 / .035) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(24 26 31 / .035) 1px, transparent 1px);
+        background-size: 36px 36px;
+        mask-image: linear-gradient(to bottom, black, transparent 92%);
+    }
+
+    .preview-float {
+        animation: preview-float 6s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    .phone-float {
+        animation: phone-float 6.5s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    .status-float {
+        animation: status-float 5s .8s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    .qr-float {
+        animation: status-float 5.8s 1.5s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    .soft-orb {
+        animation: orb-breathe 7s ease-in-out infinite;
+    }
+
+    .soft-orb-delay {
+        animation-delay: 1.4s;
+    }
+
+    .menu-scrollbar {
+        scrollbar-width: none;
+    }
+
+    .menu-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-enter {
+        animation: hero-enter .8s both cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .enter-delay-1 {
+        animation-delay: .07s;
+    }
+
+    .enter-delay-2 {
+        animation-delay: .14s;
+    }
+
+    .enter-delay-3 {
+        animation-delay: .21s;
+    }
+}
+
+.admin-typography {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Myanmar Sangam MN', sans-serif;
+    font-feature-settings: 'kern' 1;
+}
+
+.admin-typography :where(h1, h2, h3) {
+    line-height: 1.55;
+}
+
+.admin-typography :where(p, label, legend, th, td) {
+    line-height: 1.75;
+}
+
+.admin-typography :where(a, button, span) {
+    line-height: 1.55;
+}
+
+.admin-typography :where(input, select, textarea) {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.admin-typography [class~="text-[9px]"] {
+    font-size: .75rem;
+}
+
+.admin-typography [class~="text-[10px]"] {
+    font-size: .8125rem;
+}
+
+.admin-typography [class~="text-[11px]"] {
+    font-size: .875rem;
+}
+
+.admin-typography [class~="text-[12px]"] {
+    font-size: .9375rem;
+}
+
+.admin-typography [class~="text-[13px]"] {
+    font-size: 1rem;
+}
+
+.admin-typography [class~="text-[14px]"],
+.admin-typography [class~="text-sm"] {
+    font-size: 1rem;
+}
+
+@media (max-width: 639px) {
+    .shop-admin-typography [class~="text-[9px]"] {
+        font-size: .625rem;
+    }
+
+    .shop-admin-typography [class~="text-[10px]"] {
+        font-size: .6875rem;
+    }
+
+    .shop-admin-typography [class~="text-[11px]"] {
+        font-size: .75rem;
+    }
+
+    .shop-admin-typography [class~="text-[12px]"] {
+        font-size: .8125rem;
+    }
+
+    .shop-admin-typography [class~="text-[13px]"] {
+        font-size: .875rem;
+    }
+
+    .shop-admin-typography [class~="text-[14px]"],
+    .shop-admin-typography [class~="text-sm"] {
+        font-size: .875rem;
+    }
+
+    .shop-admin-typography [class~="text-[15px]"] {
+        font-size: .875rem;
+    }
+
+    .shop-admin-typography [class~="text-[16px]"] {
+        font-size: .9375rem;
+    }
+
+    .shop-admin-typography [class~="text-xl"] {
+        font-size: 1.125rem;
+    }
+
+    .shop-admin-typography [class~="text-2xl"] {
+        font-size: 1.375rem;
+    }
+}
+
+@keyframes preview-float {
+    0%, 100% {
+        transform: translateY(0) rotate(1.5deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(.5deg);
+    }
+}
+
+@keyframes phone-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+@keyframes status-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes orb-breathe {
+    0%, 100% {
+        opacity: .62;
+        transform: scale(.95);
+    }
+
+    50% {
+        opacity: .95;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes hero-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .preview-float,
+    .phone-float,
+    .status-float,
+    .qr-float,
+    .soft-orb,
+    .hero-enter {
+        animation: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .shop-login-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(440px, .92fr);
+    }
+}
